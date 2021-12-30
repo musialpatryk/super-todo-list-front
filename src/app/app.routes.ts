@@ -4,7 +4,7 @@ import {NotesComponent} from './views/notes/notes.component';
 import {GroupsComponent} from './views/groups/groups.component';
 import {AccountComponent} from './views/account/account.component';
 import {LoginComponent} from './views/login/login.component';
-import {CreateAccountComponent} from './views/account/create-account/create-account.component';
+import {CreateAccountComponent} from './views/login/create-account/create-account.component';
 import {BaseLayoutComponent} from './views/base-layout/base-layout.component';
 
 export const routes: Routes = [
