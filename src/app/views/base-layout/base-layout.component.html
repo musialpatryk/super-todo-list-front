@@ -1,12 +1,13 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
-  <div class="container d-flex justify-content-between flex-column">
-    <div>
+  <div class="container d-flex justify-content-center">
+    <div class="w-100 d-lg-flex justify-content-between d-md-block">
       <h2 class="text-light text-center fs-1">SuperList</h2>
-    </div>
-    <div class="navbar-nav d-flex justify-content-around w-75 mt-3">
-      <a class="nav-link" routerLink="notes" routerLinkActive="active">Notatki</a>
-      <a class="nav-link" routerLink="groups" routerLinkActive="active">Zarządzanie grupami</a>
-      <a class="nav-link" routerLink="account" routerLinkActive="active">Konto</a>
+
+      <div class="navbar-nav d-flex justify-content-around">
+        <a class="nav-link" routerLink="notes" routerLinkActive="active">{{'NOTES' | translate}}</a>
+        <a class="nav-link" routerLink="groups" routerLinkActive="active">{{'GROUP_MANAGEMENT' | translate}}</a>
+        <a class="nav-link" routerLink="account" routerLinkActive="active">{{'ACCOUNT' | translate}}</a>
+      </div>
     </div>
   </div>
 </nav>
