@@ -1,1 +1,40 @@
-<p>create-account works!</p>
+<app-login-wrapper>
+  <form class="d-flex flex-column w-75">
+    <h1 class="text-center my-5">SuperList</h1>
+
+    <div class="form-group">
+      <label for="username">
+        {{'USERNAME' | translate}}
+      </label>
+      <input id="username"
+             type="text"
+             class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password">
+        {{'PASSWORD' | translate}}
+      </label>
+      <input id="password"
+             type="text"
+             class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="repeat-password">
+        {{'REPEAT_PASSWORD' | translate}}
+      </label>
+      <input id="repeat-password"
+             type="text"
+             class="form-control"
+      />
+    </div>
+
+    <div class="d-flex flex-column mt-3">
+      <button class="btn btn-success">{{ 'REGISTER' | translate }}</button>
+      <a class="btn btn-link" routerLink="..">{{ 'LOGIN' | translate }}</a>
+    </div>
+  </form>
+</app-login-wrapper>

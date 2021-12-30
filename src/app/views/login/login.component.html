@@ -1,2 +1,30 @@
-<p>{{ 'LOGIN' | translate }} works!</p>
-<router-outlet></router-outlet>
+<app-login-wrapper>
+  <form class="d-flex flex-column w-75">
+    <h1 class="text-center my-5">SuperList</h1>
+
+    <div class="form-group">
+      <label for="username">
+        {{'USERNAME' | translate}}
+      </label>
+      <input id="username"
+             type="text"
+             class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password">
+        {{'PASSWORD' | translate}}
+      </label>
+      <input id="password"
+             type="text"
+             class="form-control"
+      />
+    </div>
+
+    <div class="d-flex flex-column mt-3">
+      <button type="submit" class="btn btn-success">{{ 'LOGIN' | translate }}</button>
+      <a class="btn btn-link" routerLink="./create-account">{{ 'REGISTER' | translate }}</a>
+    </div>
+  </form>
+</app-login-wrapper>

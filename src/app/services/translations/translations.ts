@@ -3,7 +3,23 @@ const EN = {
   translations: [
     {
       key: 'LOGIN',
-      value: 'Login'
+      value: 'Log In'
+    },
+    {
+      key: 'REGISTER',
+      value: 'Create new account'
+    },
+    {
+      key: 'PASSWORD',
+      value: 'Password'
+    },
+    {
+      key: 'REPEAT_PASSWORD',
+      value: 'Repeat password'
+    },
+    {
+      key: 'USERNAME',
+      value: 'Username'
     },
     {
       key: 'NOTES',

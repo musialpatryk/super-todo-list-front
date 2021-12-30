@@ -36,8 +36,11 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent,
     children: [
+      {
+        path: '',
+        component: LoginComponent,
+      },
       {
         path: 'create-account',
         component: CreateAccountComponent,
