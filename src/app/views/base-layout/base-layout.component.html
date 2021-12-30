@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="container d-flex justify-content-between flex-column">
+    <div>
+      <h2 class="text-light text-center fs-1">SuperList</h2>
+    </div>
+    <div class="navbar-nav d-flex justify-content-around w-75 mt-3">
+      <a class="nav-link" routerLink="notes" routerLinkActive="active">Notatki</a>
+      <a class="nav-link" routerLink="groups" routerLinkActive="active">Zarządzanie grupami</a>
+      <a class="nav-link" routerLink="account" routerLinkActive="active">Konto</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <router-outlet></router-outlet>
+</div>

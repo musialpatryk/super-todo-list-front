@@ -10,8 +10,8 @@ import { ViewsModule } from './views/views.module';
     AppComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     ViewsModule
   ],
   providers: [],
