@@ -33,6 +33,10 @@ const EN = {
       key: 'ACCOUNT',
       value: 'Account'
     },
+    {
+      key: 'LOGOUT',
+      value: 'Logout'
+    },
   ]
 };
 

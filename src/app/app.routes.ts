@@ -6,11 +6,13 @@ import {AccountComponent} from './views/account/account.component';
 import {LoginComponent} from './views/login/login.component';
 import {CreateAccountComponent} from './views/login/create-account/create-account.component';
 import {BaseLayoutComponent} from './views/base-layout/base-layout.component';
+import {AuthGuard} from './guards/auth.guard';
 
 export const routes: Routes = [
   {
     path: 'app',
     component: BaseLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'notes',
@@ -36,6 +38,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
