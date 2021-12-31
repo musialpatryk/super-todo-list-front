@@ -1,0 +1,6 @@
+<ng-container *ngIf="!control.pristine">
+  <span *ngFor="let error of control.errors | keyvalue"
+       class="badge badge-danger ml-2">
+    {{error.key | translate}}
+  </span>
+</ng-container>

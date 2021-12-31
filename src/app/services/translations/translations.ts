@@ -37,6 +37,14 @@ const EN = {
       key: 'LOGOUT',
       value: 'Logout'
     },
+    {
+      key: 'required',
+      value: 'Field is required!'
+    },
+    {
+      key: 'notSame',
+      value: 'Passwords don\'t match!'
+    },
   ]
 };
 

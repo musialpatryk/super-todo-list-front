@@ -24,6 +24,10 @@ export class LoginComponent implements OnDestroy {
   }
 
   tryLogin(): void {
+    if (this.loginForm.invalid) {
+      return;
+    }
+
     const username = this.loginForm.get('username')?.value,
       password = this.loginForm.get('password')?.value;
 

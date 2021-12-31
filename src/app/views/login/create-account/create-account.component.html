@@ -1,39 +1,61 @@
 <app-login-wrapper>
-  <form class="d-flex flex-column w-75">
+  <form class="d-flex flex-column w-75"
+        (ngSubmit)="createAccount()"
+        [formGroup]="createUserForm">
     <h1 class="text-center my-5">SuperList</h1>
 
     <div class="form-group">
       <label for="username">
         {{'USERNAME' | translate}}
+
+        <app-validation-errors [control]="createUserForm.controls['username']">
+        </app-validation-errors>
       </label>
       <input id="username"
+             formControlName="username"
              type="text"
              class="form-control"
       />
     </div>
 
-    <div class="form-group">
-      <label for="password">
-        {{'PASSWORD' | translate}}
-      </label>
-      <input id="password"
-             type="text"
-             class="form-control"
-      />
-    </div>
+    <ng-container formGroupName="passwords">
+      <div class="form-group">
+        <label for="password">
+          {{'PASSWORD' | translate}}
+          <app-validation-errors [control]="passwordControls.password">
+          </app-validation-errors>
+        </label>
+        <input id="password"
+               formControlName="password"
+               type="text"
+               class="form-control"
+        />
+      </div>
 
-    <div class="form-group">
-      <label for="repeat-password">
-        {{'REPEAT_PASSWORD' | translate}}
-      </label>
-      <input id="repeat-password"
-             type="text"
-             class="form-control"
-      />
-    </div>
+      <div class="form-group">
+        <label for="repeat-password">
+          {{'REPEAT_PASSWORD' | translate}}
+
+          <app-validation-errors [control]="passwordControls.repeatPassword">
+          </app-validation-errors>
+
+          <app-validation-errors [control]="createUserForm.controls['passwords']">
+          </app-validation-errors>
+        </label>
+        <input id="repeat-password"
+               formControlName="repeatPassword"
+               type="text"
+               class="form-control"
+        />
+      </div>
+    </ng-container>
 
     <div class="d-flex flex-column mt-3">
-      <button class="btn btn-success">{{ 'REGISTER' | translate }}</button>
+      <button type="submit"
+              [disabled]="createUserForm.invalid"
+              class="btn btn-success">
+        {{ 'REGISTER' | translate }}
+      </button>
       <a class="btn btn-link" routerLink="..">{{ 'LOGIN' | translate }}</a>
     </div>
   </form>

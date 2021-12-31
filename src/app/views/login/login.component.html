@@ -7,17 +7,23 @@
     <div class="form-group">
       <label for="username">
         {{'USERNAME' | translate}}
+
+        <app-validation-errors [control]="loginForm.controls['username']">
+        </app-validation-errors>
       </label>
       <input id="username"
              formControlName="username"
              type="text"
              class="form-control"
       />
-    </div>
+      </div>
 
     <div class="form-group">
       <label for="password">
         {{'PASSWORD' | translate}}
+
+        <app-validation-errors [control]="loginForm.controls['password']">
+        </app-validation-errors>
       </label>
       <input id="password"
              formControlName="password"

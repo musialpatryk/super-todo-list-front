@@ -5,6 +5,7 @@ import {PipesModule} from '../../pipes/pipes.module';
 import {RouterModule} from '@angular/router';
 import {ComponentsModule} from '../../components/components.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
         PipesModule,
         RouterModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        CommonModule
     ],
   declarations: [
     LoginComponent,
