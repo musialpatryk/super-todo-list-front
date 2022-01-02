@@ -65,6 +65,14 @@ const EN = {
       key: 'DETAILS',
       value: 'Details'
     },
+    {
+      key: 'APP',
+      value: 'SuperList'
+    },
+    {
+      key: 'GROUPS',
+      value: 'Groups'
+    },
   ]
 };
 

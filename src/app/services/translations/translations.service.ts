@@ -50,7 +50,7 @@ export class TranslationsService {
     });
 
     if (!searchedTranslation) {
-      return '';
+      return key;
     }
 
     return searchedTranslation.value;

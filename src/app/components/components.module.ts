@@ -3,6 +3,7 @@ import {LoginWrapperComponent} from './login-wrapper/login-wrapper.component';
 import { ValidationErrorsComponent } from './validation-errors/validation-errors.component';
 import {CommonModule} from '@angular/common';
 import {PipesModule} from '../pipes/pipes.module';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 
 @NgModule({
@@ -12,11 +13,13 @@ import {PipesModule} from '../pipes/pipes.module';
   ],
     declarations: [
       LoginWrapperComponent,
-      ValidationErrorsComponent
+      ValidationErrorsComponent,
+      BreadcrumbsComponent
     ],
     exports: [
-      LoginWrapperComponent,
-      ValidationErrorsComponent
+        LoginWrapperComponent,
+        ValidationErrorsComponent,
+        BreadcrumbsComponent
     ]
 })
 export class ComponentsModule {
