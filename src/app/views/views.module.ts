@@ -7,6 +7,7 @@ import {AccountModule} from './account/account.module';
 import { BaseLayoutComponent } from './base-layout/base-layout.component';
 import {PipesModule} from '../pipes/pipes.module';
 import {LoginModule} from './login/login.module';
+import {CommonModule} from '@angular/common';
 
 
 @NgModule({
@@ -16,12 +17,13 @@ import {LoginModule} from './login/login.module';
         GroupsComponent,
         BaseLayoutComponent,
     ],
-  imports: [
-    AccountModule,
-    LoginModule,
-    RouterModule,
-    PipesModule
-  ],
+    imports: [
+        AccountModule,
+        LoginModule,
+        RouterModule,
+        PipesModule,
+        CommonModule
+    ],
     exports: [
         PageNotFoundComponent,
         NotesComponent

@@ -1,1 +1,29 @@
-<p>groups works!</p>
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+      <th>
+        {{'ID' | translate}}
+      </th>
+      <th>
+        {{'GROUP_NAME' | translate}}
+      </th>
+      <th>
+        {{'ACTIONS' | translate}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let group of groups">
+      <td>{{group.id}}</td>
+      <td>{{group.name}}</td>
+      <td>
+        <button type="button" class="btn btn-info">
+          {{'DETAILS' | translate}}
+        </button>
+        <button type="button" class="btn btn-danger ml-3">
+          {{'DELETE' | translate}}
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

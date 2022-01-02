@@ -1,0 +1,9 @@
+th, td {
+  &:first-of-type {
+    width: 10%;
+  }
+
+  &:last-of-type {
+    width: 25%;
+  }
+}

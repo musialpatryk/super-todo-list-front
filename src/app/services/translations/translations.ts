@@ -45,6 +45,26 @@ const EN = {
       key: 'notSame',
       value: 'Passwords don\'t match!'
     },
+    {
+      key: 'DELETE',
+      value: 'Delete'
+    },
+    {
+      key: 'ID',
+      value: 'ID'
+    },
+    {
+      key: 'GROUP_NAME',
+      value: 'Group name'
+    },
+    {
+      key: 'ACTIONS',
+      value: 'Actions'
+    },
+    {
+      key: 'DETAILS',
+      value: 'Details'
+    },
   ]
 };
 
