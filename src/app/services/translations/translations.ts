@@ -73,6 +73,10 @@ const EN = {
       key: 'GROUPS',
       value: 'Groups'
     },
+    {
+      key: 'ACCOUNT_INFO',
+      value: 'Account information'
+    },
   ]
 };
 

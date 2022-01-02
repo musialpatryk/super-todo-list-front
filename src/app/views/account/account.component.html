@@ -1,1 +1,26 @@
-<p>account works!</p>
+<div class="card">
+  <div class="card-header bg-secondary text-light">
+    {{'ACCOUNT_INFO' | translate}}
+  </div>
+  <div class="card-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6 font-weight-bold">
+          {{'ID' | translate}}:
+        </div>
+        <div class="col-6">
+          {{user.id}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 font-weight-bold">
+          {{'USERNAME' | translate}}:
+        </div>
+        <div class="col-6">
+          {{user.username}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

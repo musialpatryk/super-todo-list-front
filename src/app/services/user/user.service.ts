@@ -2,8 +2,10 @@ import {Inject, Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Router} from '@angular/router';
 import {DOCUMENT} from '@angular/common';
+import cloneDeep from 'lodash.clonedeep';
 
-interface IUser {
+export interface IUser {
+  id: number;
   username: string;
 }
 
@@ -35,7 +37,10 @@ export class UserService {
     username: string,
     password: string
   ): Observable<boolean> {
-    this.saveUser({username});
+    this.saveUser({
+      id: 0,
+      username
+    });
     return of(true);
   }
 
@@ -56,5 +61,13 @@ export class UserService {
 
   isLogged(): boolean {
     return !!this.user;
+  }
+
+  getUser(): IUser {
+    if (!this.user) {
+      return {} as IUser;
+    }
+
+    return cloneDeep(this.user);
   }
 }
