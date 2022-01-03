@@ -1,1 +1,21 @@
-<p>notes works!</p>
+<h3 *ngIf="!notes?.length"
+    class="text-center">
+  {{'NOTES_LIST_EMPTY' | translate}}
+</h3>
+
+<div *ngIf="notes?.length" class="notes-container">
+  <div class="note card"
+       *ngFor="let note of notes">
+
+    <div class="card-body">
+      <h5 class="card-title">{{note.title}}</h5>
+      <hr />
+      <div class="desc-container h-75">
+        <p class="card-text">{{note.description}}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
