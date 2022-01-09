@@ -1,12 +1,15 @@
 import {Inject, Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {DOCUMENT} from '@angular/common';
 import cloneDeep from 'lodash.clonedeep';
+import {RestService} from '../rest/rest.service';
+import {tap} from 'rxjs/operators';
+import {HttpResponse} from '@angular/common/http';
 
 export interface IUser {
-  id: number;
   username: string;
+  token: string;
 }
 
 @Injectable({
@@ -19,6 +22,7 @@ export class UserService {
 
   constructor(
     private router: Router,
+    private rest: RestService,
     @Inject(DOCUMENT) document: Document
   ) {
     this.sessionStorage = document.defaultView!.sessionStorage;
@@ -36,12 +40,27 @@ export class UserService {
   login(
     username: string,
     password: string
-  ): Observable<boolean> {
-    this.saveUser({
-      id: 0,
-      username
-    });
-    return of(true);
+  ): Observable<HttpResponse<string>> {
+    const payload = {
+      email: username,
+      password
+    }
+    return this.rest.post('authenticate', payload, {responseType: 'text'})
+      .pipe(
+        tap({
+          next: (response) => {
+            if (typeof response.body !== 'string') {
+              return;
+            }
+
+            this.saveUser({
+              username,
+              token: response.body
+            });
+            return true;
+          }
+        })
+      );
   }
 
   private saveUser(user: IUser): void {
@@ -69,5 +88,9 @@ export class UserService {
     }
 
     return cloneDeep(this.user);
+  }
+
+  getToken(): string | undefined {
+    return this.user?.token;
   }
 }

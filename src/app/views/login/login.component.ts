@@ -33,12 +33,13 @@ export class LoginComponent implements OnDestroy {
 
     this.userService.login(username, password)
       .pipe(takeUntil(this._destroy$))
-      .subscribe((success) => {
-        if (!success) {
+      .subscribe({
+        next: () => {
+          this.router.navigate(['app']);
+        },
+        error: () => {
           this.loginForm.reset();
-          return;
         }
-        this.router.navigate(['app']);
       });
   }
 
