@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IRestGroup} from '../../services/rest/rest.interfaces';
+import {HttpClient} from '@angular/common/http';
 
 
 @Component({
@@ -7,20 +8,23 @@ import {IRestGroup} from '../../services/rest/rest.interfaces';
   templateUrl: './groups.component.html',
   styleUrls: ['./groups.component.scss']
 })
-export class GroupsComponent  {
-  groups: IRestGroup[];
+export class GroupsComponent implements OnInit {
+  groups: IRestGroup[] = [];
 
-  constructor() {
-    this.groups = [
-      {
-        id: 1,
-        name: 'group_1'
-      },
-      {
-        id: 2,
-        name: 'group_2'
-      },
-    ]
+  constructor(
+    private http: HttpClient
+  ) {
   }
 
+  ngOnInit(): void {
+    this.http.get<IRestGroup[]>('group')
+      .subscribe((groups) => {
+        this.groups = groups;
+      });
+  }
+
+  removeGroup(group: IRestGroup): void {
+    this.http.delete(`group/${group.id}`)
+      .subscribe()
+  }
 }
