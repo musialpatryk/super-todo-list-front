@@ -1,0 +1,56 @@
+<div class="note card">
+  <ng-container *ngIf="!edit">
+    <div class="card-body">
+      <h5 class="card-title">{{note.name}}</h5>
+      <hr />
+      <div class="desc-container h-75">
+        <p class="card-text">{{note.description}}</p>
+      </div>
+    </div>
+
+    <div class="card-footer d-flex justify-content-end">
+      <button type="button"
+              (click)="editNote()"
+              class="btn btn-success">
+        {{'EDIT' | translate}}
+      </button>
+      <button type="button"
+              (click)="deleteNote()"
+              class="btn btn-danger ml-3">
+        {{'DELETE' | translate}}
+      </button>
+    </div>
+  </ng-container>
+
+
+  <ng-container *ngIf="edit">
+    <form class="card-body" [formGroup]="editForm">
+      <h5 class="card-title text-center">
+        <input type="text"
+               class="form-control"
+               [placeholder]="'NOTE_NAME' | translate"
+               formControlName="name"
+        />
+      </h5>
+      <hr />
+      <div class="desc-container h-75">
+        <p class="card-text">
+          <textarea type="text"
+                 class="form-control"
+                 [placeholder]="'NOTE_DESCRIPTION' | translate"
+                 formControlName="description">
+          </textarea>
+        </p>
+      </div>
+    </form>
+
+    <div class="card-footer d-flex justify-content-end">
+      <button type="button"
+              (click)="saveNote()"
+              class="btn btn-success">
+        {{'SAVE' | translate}}
+      </button>
+    </div>
+  </ng-container>
+
+</div>

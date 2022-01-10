@@ -7,6 +7,7 @@ import {LoginComponent} from './views/login/login.component';
 import {CreateAccountComponent} from './views/login/create-account/create-account.component';
 import {BaseLayoutComponent} from './views/base-layout/base-layout.component';
 import {AuthGuard} from './guards/auth.guard';
+import {AddNoteComponent} from './views/notes/add-note/add-note.component';
 
 export const routes: Routes = [
   {
@@ -17,6 +18,10 @@ export const routes: Routes = [
       {
         path: 'notes',
         component: NotesComponent
+      },
+      {
+        path: 'add/:groupId',
+        component: AddNoteComponent,
       },
       { path: 'groups',
         component: GroupsComponent

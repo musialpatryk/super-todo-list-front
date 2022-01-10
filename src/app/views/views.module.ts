@@ -9,6 +9,8 @@ import {PipesModule} from '../pipes/pipes.module';
 import {LoginModule} from './login/login.module';
 import {CommonModule} from '@angular/common';
 import {ComponentsModule} from '../components/components.module';
+import { AddNoteComponent } from './notes/add-note/add-note.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -17,6 +19,7 @@ import {ComponentsModule} from '../components/components.module';
         NotesComponent,
         GroupsComponent,
         BaseLayoutComponent,
+        AddNoteComponent,
     ],
   imports: [
     AccountModule,
@@ -24,7 +27,8 @@ import {ComponentsModule} from '../components/components.module';
     RouterModule,
     PipesModule,
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
+    FormsModule
   ],
     exports: [
         PageNotFoundComponent,

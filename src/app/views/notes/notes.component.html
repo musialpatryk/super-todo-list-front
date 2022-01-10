@@ -1,21 +1,40 @@
-<h3 *ngIf="!notes?.length"
+<h3 *ngIf="!groups?.length && !loading"
     class="text-center">
-  {{'NOTES_LIST_EMPTY' | translate}}
+  {{'NO_GROUPS' | translate}}
 </h3>
 
-<div *ngIf="notes?.length" class="notes-container">
-  <div class="note card"
-       *ngFor="let note of notes">
-
-    <div class="card-body">
-      <h5 class="card-title">{{note.name}}</h5>
-      <hr />
-      <div class="desc-container h-75">
-        <p class="card-text">{{note.description}}</p>
-      </div>
+<ng-container *ngIf="groups?.length">
+  <div class="mb-5 row">
+    <div class="form-group col-10">
+      <select class="form-control"
+              [(ngModel)]="currentGroup"
+              id="group-select">
+        <option *ngFor="let group of groups" [ngValue]="group">{{group.name}}</option>
+      </select>
     </div>
 
+    <div class="col d-flex justify-content-end">
+      <div class="w-100">
+        <button type="button"
+                [routerLink]="['../add', currentGroup.id]"
+                class="btn btn-success w-100">
+          {{'ADD' | translate}}
+        </button>
+      </div>
+    </div>
   </div>
-</div>
+
+  <h3 *ngIf="!notes?.length && !loading"
+      class="text-center">
+    {{'NOTES_LIST_EMPTY' | translate}}
+  </h3>
+
+  <div *ngIf="notes?.length" class="notes-container">
+    <app-note *ngFor="let note of notes"
+              (noteChange)="reloadNotes()"
+              [note]="note">
+    </app-note>
+  </div>
+</ng-container>
 
 

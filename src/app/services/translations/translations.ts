@@ -81,6 +81,18 @@ const EN = {
       key: 'LOGIN_ERROR',
       value: 'Wrong username or password'
     },
+    {
+      key: 'EDIT',
+      value: 'Edit'
+    },
+    {
+      key: 'SAVE',
+      value: 'Save'
+    },
+    {
+      key: 'ADD',
+      value: 'Add'
+    },
   ]
 };
 

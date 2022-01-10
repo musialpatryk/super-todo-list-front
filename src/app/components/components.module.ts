@@ -4,22 +4,27 @@ import { ValidationErrorsComponent } from './validation-errors/validation-errors
 import {CommonModule} from '@angular/common';
 import {PipesModule} from '../pipes/pipes.module';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { NoteComponent } from './note/note.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    PipesModule
+    PipesModule,
+    ReactiveFormsModule
   ],
     declarations: [
       LoginWrapperComponent,
       ValidationErrorsComponent,
-      BreadcrumbsComponent
+      BreadcrumbsComponent,
+      NoteComponent
     ],
     exports: [
         LoginWrapperComponent,
         ValidationErrorsComponent,
-        BreadcrumbsComponent
+        BreadcrumbsComponent,
+        NoteComponent
     ]
 })
 export class ComponentsModule {

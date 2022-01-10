@@ -3,10 +3,3 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
-
-.note {
-  height: 250px;
-  .desc-container {
-    overflow: auto;
-  }
-}
