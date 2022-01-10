@@ -77,6 +77,10 @@ const EN = {
       key: 'ACCOUNT_INFO',
       value: 'Account information'
     },
+    {
+      key: 'LOGIN_ERROR',
+      value: 'Wrong username or password'
+    },
   ]
 };
 

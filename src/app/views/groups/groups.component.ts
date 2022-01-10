@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
+import {IRestGroup} from '../../services/rest/rest.interfaces';
 
-interface IGroup {
-  id: number;
-  name: string;
-}
 
 @Component({
   selector: 'app-groups',
@@ -11,7 +8,7 @@ interface IGroup {
   styleUrls: ['./groups.component.scss']
 })
 export class GroupsComponent  {
-  groups: IGroup[];
+  groups: IRestGroup[];
 
   constructor() {
     this.groups = [

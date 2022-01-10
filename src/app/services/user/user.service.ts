@@ -3,12 +3,12 @@ import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {DOCUMENT} from '@angular/common';
 import cloneDeep from 'lodash.clonedeep';
-import {RestService} from '../rest/rest.service';
 import {tap} from 'rxjs/operators';
-import {HttpResponse} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
+import {IRestUser} from '../rest/rest.interfaces';
 
-export interface IUser {
-  username: string;
+export interface ILoginInfo {
+  user: IRestUser;
   token: string;
 }
 
@@ -17,12 +17,12 @@ export interface IUser {
 })
 export class UserService {
   private readonly userKey = 'currentUser';
-  private user: IUser | undefined;
+  private userInfo: ILoginInfo | undefined;
   private sessionStorage!: Storage;
 
   constructor(
     private router: Router,
-    private rest: RestService,
+    private http: HttpClient,
     @Inject(DOCUMENT) document: Document
   ) {
     this.sessionStorage = document.defaultView!.sessionStorage;
@@ -33,29 +33,27 @@ export class UserService {
     const data = sessionStorage.getItem(this.userKey);
 
     if (data) {
-      this.user = JSON.parse(data);
+      this.userInfo = JSON.parse(data);
     }
   }
 
   login(
     username: string,
     password: string
-  ): Observable<HttpResponse<string>> {
+  ): Observable<string> {
     const payload = {
       email: username,
       password
     }
-    return this.rest.post('authenticate', payload, {responseType: 'text'})
+    return this.http.post('authenticate', payload, {responseType: 'text'})
       .pipe(
         tap({
           next: (response) => {
-            if (typeof response.body !== 'string') {
-              return;
-            }
-
             this.saveUser({
-              username,
-              token: response.body
+              user: {
+                username
+              },
+              token: response
             });
             return true;
           }
@@ -63,8 +61,8 @@ export class UserService {
       );
   }
 
-  private saveUser(user: IUser): void {
-    this.user = user;
+  private saveUser(user: ILoginInfo): void {
+    this.userInfo = user;
     this.sessionStorage.setItem(this.userKey, JSON.stringify(user));
   }
 
@@ -74,23 +72,23 @@ export class UserService {
   }
 
   private clearUser(): void {
-    this.user = undefined;
+    this.userInfo = undefined;
     this.sessionStorage.removeItem(this.userKey);
   }
 
   isLogged(): boolean {
-    return !!this.user;
+    return !!this.userInfo;
   }
 
-  getUser(): IUser {
-    if (!this.user) {
-      return {} as IUser;
+  getUser(): IRestUser {
+    if (!this.userInfo) {
+      return {} as IRestUser;
     }
 
-    return cloneDeep(this.user);
+    return cloneDeep(this.userInfo.user);
   }
 
   getToken(): string | undefined {
-    return this.user?.token;
+    return this.userInfo?.token;
   }
 }

@@ -14,6 +14,7 @@ export class LoginComponent implements OnDestroy {
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
+  loginError = false;
 
   private _destroy$ = new Subject<void>();
 
@@ -38,9 +39,14 @@ export class LoginComponent implements OnDestroy {
           this.router.navigate(['app']);
         },
         error: () => {
+          this.showError();
           this.loginForm.reset();
         }
       });
+  }
+
+  showError(): void {
+    this.loginError = true;
   }
 
   ngOnDestroy(): void {

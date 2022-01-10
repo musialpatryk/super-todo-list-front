@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import {IUser, UserService} from '../../services/user/user.service';
+import {UserService} from '../../services/user/user.service';
+import {IRestUser} from '../../services/rest/rest.interfaces';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html'
 })
 export class AccountComponent  {
-  user: IUser;
+  user: IRestUser;
 
   constructor(
     private userService: UserService
