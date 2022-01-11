@@ -6,12 +6,7 @@
 
       <div class="d-flex">
         <div class="mr-2 d-flex justify-content-center align-items-center">
-          <select class="form-control-sm" [(ngModel)]="currentLanguage">
-            <option *ngFor="let lang of translations.availableLanguages"
-                    [ngValue]="lang">
-              {{lang | uppercase}}
-            </option>
-          </select>
+          <app-lang-select></app-lang-select>
         </div>
 
         <div class="navbar-nav d-flex justify-content-around">

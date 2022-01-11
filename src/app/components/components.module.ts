@@ -5,27 +5,31 @@ import {CommonModule} from '@angular/common';
 import {PipesModule} from '../pipes/pipes.module';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { NoteComponent } from './note/note.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { LangSelectComponent } from './lang-select/lang-select.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
     PipesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
     declarations: [
       LoginWrapperComponent,
       ValidationErrorsComponent,
       BreadcrumbsComponent,
-      NoteComponent
+      NoteComponent,
+      LangSelectComponent
     ],
-    exports: [
-        LoginWrapperComponent,
-        ValidationErrorsComponent,
-        BreadcrumbsComponent,
-        NoteComponent
-    ]
+  exports: [
+    LoginWrapperComponent,
+    ValidationErrorsComponent,
+    BreadcrumbsComponent,
+    NoteComponent,
+    LangSelectComponent
+  ]
 })
 export class ComponentsModule {
 }

@@ -1,0 +1,6 @@
+<select class="form-control form-control-sm" [(ngModel)]="currentLanguage" style="width: 75px">
+  <option *ngFor="let lang of translations.availableLanguages"
+          [ngValue]="lang">
+    {{lang | uppercase}}
+  </option>
+</select>
