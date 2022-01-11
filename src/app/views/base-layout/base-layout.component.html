@@ -5,6 +5,15 @@
 
 
       <div class="d-flex">
+        <div class="mr-2 d-flex justify-content-center align-items-center">
+          <select class="form-control-sm" [(ngModel)]="currentLanguage">
+            <option *ngFor="let lang of translations.availableLanguages"
+                    [ngValue]="lang">
+              {{lang | uppercase}}
+            </option>
+          </select>
+        </div>
+
         <div class="navbar-nav d-flex justify-content-around">
           <a class="nav-link" routerLink="notes" routerLinkActive="active">{{'NOTES' | translate}}</a>
           <a class="nav-link" routerLink="groups" routerLinkActive="active">{{'GROUP_MANAGEMENT' | translate}}</a>

@@ -56,14 +56,21 @@ export class TranslationsService {
     return searchedTranslation.value;
   }
 
-  changeLanguage(lang: string): void {
+  changeLanguage(lang: string): boolean {
     const searchedLang = this.availableTranslations.find((translation) => {
       return translation.lang === lang;
     });
 
-    if (searchedLang) {
-      this.currentLanguage = searchedLang;
-      this.translationChange.next();
+    if (!searchedLang) {
+      return false;
     }
+
+    this.currentLanguage = searchedLang;
+    this.translationChange.next();
+    return true;
+  }
+
+  getCurrentLanguage(): string {
+    return this.currentLanguage.lang;
   }
 }
