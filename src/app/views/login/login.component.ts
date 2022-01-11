@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnDestroy {
   loginForm = new FormGroup({
-    username: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
   loginError = false;
@@ -29,10 +29,10 @@ export class LoginComponent implements OnDestroy {
       return;
     }
 
-    const username = this.loginForm.get('username')?.value,
+    const email = this.loginForm.get('email')?.value,
       password = this.loginForm.get('password')?.value;
 
-    this.userService.login(username, password)
+    this.userService.login(email, password)
       .pipe(takeUntil(this._destroy$))
       .subscribe({
         next: () => {

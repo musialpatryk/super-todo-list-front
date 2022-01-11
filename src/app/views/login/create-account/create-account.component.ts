@@ -1,18 +1,24 @@
 import { Component } from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-account',
   templateUrl: './create-account.component.html',
 })
-export class CreateAccountComponent  {
+export class CreateAccountComponent {
   createUserForm!: FormGroup;
   passwordControls!: {
     password: FormControl;
     repeatPassword: FormControl;
   };
+  creationError = false;
 
-  constructor() {
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {
     this.initializeFormControls();
   }
 
@@ -22,6 +28,7 @@ export class CreateAccountComponent  {
 
     this.createUserForm = new FormGroup({
       username: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
       passwords: new FormGroup({
         password: passwordControl,
         repeatPassword: repeatPasswordControl
@@ -45,8 +52,20 @@ export class CreateAccountComponent  {
       return;
     }
 
-    const username = this.createUserForm.get('username')!.value,
-      password = this.createUserForm.get('passwords.password')!.value;
+    const payload = {
+        name: this.createUserForm.get('username')!.value,
+        email: this.createUserForm.get('email')!.value,
+        password: this.createUserForm.get('passwords.password')!.value,
+        passwordCheck: this.createUserForm.get('passwords.repeatPassword')!.value
+      };
+    this.http.post('register', payload)
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/login']);
+        },
+        error: () => {
+          this.creationError = true;
+        }
+      })
   }
-
 }

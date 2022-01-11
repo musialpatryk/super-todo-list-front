@@ -18,6 +18,20 @@
       />
     </div>
 
+    <div class="form-group">
+    <label for="email">
+      {{'EMAIL' | translate}}
+
+      <app-validation-errors [control]="createUserForm.controls['email']">
+      </app-validation-errors>
+    </label>
+    <input id="email"
+           formControlName="email"
+           type="text"
+           class="form-control"
+    />
+    </div>
+
     <ng-container formGroupName="passwords">
       <div class="form-group">
         <label for="password">
@@ -27,7 +41,7 @@
         </label>
         <input id="password"
                formControlName="password"
-               type="text"
+               type="password"
                class="form-control"
         />
       </div>
@@ -44,11 +58,16 @@
         </label>
         <input id="repeat-password"
                formControlName="repeatPassword"
-               type="text"
+               type="password"
                class="form-control"
         />
       </div>
     </ng-container>
+
+    <div *ngIf="creationError"
+         class="py-1 text-center alert-danger">
+      {{'REGISTER_ERROR' | translate}}
+    </div>
 
     <div class="d-flex flex-column mt-3">
       <button type="submit"

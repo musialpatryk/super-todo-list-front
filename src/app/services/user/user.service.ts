@@ -38,11 +38,11 @@ export class UserService {
   }
 
   login(
-    username: string,
+    email: string,
     password: string
   ): Observable<string> {
     const payload = {
-      email: username,
+      email: email,
       password
     }
     return this.http.post('authenticate', payload, {responseType: 'text'})
@@ -51,7 +51,7 @@ export class UserService {
           next: (response) => {
             this.saveUser({
               user: {
-                username
+                username: email
               },
               token: response
             });

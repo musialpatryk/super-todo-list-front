@@ -1,3 +1,30 @@
+<div class="mb-2 row">
+  <div class="form-group col-10">
+    <input type="text"
+           class="form-control"
+           [formControl]="nameControl"
+           [placeholder]="'GROUP_NAME' | translate"
+    />
+  </div>
+
+  <div class="col d-flex justify-content-end">
+    <div class="w-100">
+      <button type="button"
+              [disabled]="nameControl.invalid"
+              (click)="addGroup()"
+              class="btn btn-success w-100">
+        {{'ADD' | translate}}
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="error"
+     class="mb-4 py-1 text-center alert-danger">
+  {{'ERROR' | translate}}
+</div>
+
+
 <div class="table-responsive">
   <table class="table table-bordered table-hover table-striped">
     <thead>
@@ -28,6 +55,11 @@
         </button>
       </td>
     </tr>
+    <tr *ngIf="!groups?.length">
+      <td colspan="3">{{'NO_GROUPS' | translate}}</td>
+    </tr>
     </tbody>
   </table>
 </div>
+
+

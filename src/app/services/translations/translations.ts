@@ -93,6 +93,30 @@ const EN = {
       key: 'ADD',
       value: 'Add'
     },
+    {
+      key: 'EMAIL',
+      value: 'E-mail'
+    },
+    {
+      key: 'email',
+      value: 'Wrong e-mail'
+    },
+    {
+      key: 'REGISTER_ERROR',
+      value: 'Something went wrong.'
+    },
+    {
+      key: 'ERROR',
+      value: 'Something went wrong.'
+    },
+    {
+      key: 'NO_GROUPS',
+      value: 'No group available.'
+    },
+    {
+      key: 'NO_GROUPS_NO_NOTES',
+      value: 'To add note, you need to create at least one group.'
+    },
   ]
 };
 

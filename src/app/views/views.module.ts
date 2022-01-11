@@ -10,7 +10,7 @@ import {LoginModule} from './login/login.module';
 import {CommonModule} from '@angular/common';
 import {ComponentsModule} from '../components/components.module';
 import { AddNoteComponent } from './notes/add-note/add-note.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +28,8 @@ import {FormsModule} from '@angular/forms';
     PipesModule,
     CommonModule,
     ComponentsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
     exports: [
         PageNotFoundComponent,
