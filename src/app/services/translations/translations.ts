@@ -79,7 +79,7 @@ const EN = {
     },
     {
       key: 'LOGIN_ERROR',
-      value: 'Wrong username or password'
+      value: 'Wrong e-mail or password'
     },
     {
       key: 'EDIT',
@@ -125,6 +125,22 @@ const EN = {
       key: 'GROUP',
       value: 'Group'
     },
+    {
+      key: 'SUCCESS',
+      value: 'Success'
+    },
+    {
+      key: 'NOTES_LIST_EMPTY',
+      value: 'Brak notatek'
+    },
+    {
+      key: 'NOTE_NAME',
+      value: 'Name'
+    },
+    {
+      key: 'NOTE_DESCRIPTION',
+      value: 'Description'
+    }
   ]
 };
 
@@ -134,6 +150,142 @@ const PL = {
     {
       key: 'LOGIN',
       value: 'Zaloguj się'
+    },
+    {
+      key: 'REGISTER',
+      value: 'Utwórz nowe konto'
+    },
+    {
+      key: 'PASSWORD',
+      value: 'Hasło'
+    },
+    {
+      key: 'REPEAT_PASSWORD',
+      value: 'Powtórz hasło'
+    },
+    {
+      key: 'USERNAME',
+      value: 'Nazwa użytkownika'
+    },
+    {
+      key: 'NOTES',
+      value: 'Notatki'
+    },
+    {
+      key: 'GROUP_MANAGEMENT',
+      value: 'Zarządzanie grupami'
+    },
+    {
+      key: 'ACCOUNT',
+      value: 'Konto'
+    },
+    {
+      key: 'LOGOUT',
+      value: 'Wyloguj się'
+    },
+    {
+      key: 'required',
+      value: 'Pole jest wymagane'
+    },
+    {
+      key: 'notSame',
+      value: 'Hasła muszą być identyczne!'
+    },
+    {
+      key: 'DELETE',
+      value: 'Usuń'
+    },
+    {
+      key: 'ID',
+      value: 'ID'
+    },
+    {
+      key: 'GROUP_NAME',
+      value: 'Nazwa grupy'
+    },
+    {
+      key: 'ACTIONS',
+      value: 'Akcje'
+    },
+    {
+      key: 'DETAILS',
+      value: 'Szczegóły'
+    },
+    {
+      key: 'APP',
+      value: 'SuperList'
+    },
+    {
+      key: 'GROUPS',
+      value: 'Grupy'
+    },
+    {
+      key: 'ACCOUNT_INFO',
+      value: 'Informacje o koncie'
+    },
+    {
+      key: 'LOGIN_ERROR',
+      value: 'Błędny e-mail lub hasło.'
+    },
+    {
+      key: 'EDIT',
+      value: 'Edytuj'
+    },
+    {
+      key: 'SAVE',
+      value: 'Zapisz'
+    },
+    {
+      key: 'ADD',
+      value: 'Dodaj'
+    },
+    {
+      key: 'EMAIL',
+      value: 'E-mail'
+    },
+    {
+      key: 'email',
+      value: 'Błędny e-mail'
+    },
+    {
+      key: 'REGISTER_ERROR',
+      value: 'Ups, coś poszło nie tak.'
+    },
+    {
+      key: 'ERROR',
+      value: 'Coś poszło nie tak.'
+    },
+    {
+      key: 'NO_GROUPS',
+      value: 'Brak grup'
+    },
+    {
+      key: 'NO_GROUPS_NO_NOTES',
+      value: 'Żeby dodać notatke musisz najpierw należeć do grupy.'
+    },
+    {
+      key: 'INVITATION_LINK',
+      value: 'Zaproszenie'
+    },
+    {
+      key: 'GROUP',
+      value: 'Grupa'
+    },
+    {
+      key: 'SUCCESS',
+      value: 'Sukces'
+    },
+    {
+      key: 'NOTES_LIST_EMPTY',
+      value: 'Brak notatek'
+    },
+    {
+      key: 'NOTE_NAME',
+      value: 'Nazwa'
+    },
+    {
+      key: 'NOTE_DESCRIPTION',
+      value: 'Treść'
     }
   ]
 };
