@@ -7,17 +7,12 @@ import {tap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {IRestUser} from '../rest/rest.interfaces';
 
-export interface ILoginInfo {
-  user: IRestUser;
-  token: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private readonly userKey = 'currentUser';
-  private userInfo: ILoginInfo | undefined;
+  private user: IRestUser | undefined;
   private sessionStorage!: Storage;
 
   constructor(
@@ -33,36 +28,31 @@ export class UserService {
     const data = sessionStorage.getItem(this.userKey);
 
     if (data) {
-      this.userInfo = JSON.parse(data);
+      this.user = JSON.parse(data);
     }
   }
 
   login(
     email: string,
     password: string
-  ): Observable<string> {
+  ): Observable<IRestUser> {
     const payload = {
       email: email,
       password
     }
-    return this.http.post('authenticate', payload, {responseType: 'text'})
+    return this.http.post<IRestUser>('authenticate', payload)
       .pipe(
         tap({
           next: (response) => {
-            this.saveUser({
-              user: {
-                username: email
-              },
-              token: response
-            });
+            this.saveUser(response);
             return true;
           }
         })
       );
   }
 
-  private saveUser(user: ILoginInfo): void {
-    this.userInfo = user;
+  private saveUser(user: IRestUser): void {
+    this.user = user;
     this.sessionStorage.setItem(this.userKey, JSON.stringify(user));
   }
 
@@ -72,23 +62,23 @@ export class UserService {
   }
 
   private clearUser(): void {
-    this.userInfo = undefined;
+    this.user = undefined;
     this.sessionStorage.removeItem(this.userKey);
   }
 
   isLogged(): boolean {
-    return !!this.userInfo;
+    return !!this.user;
   }
 
   getUser(): IRestUser {
-    if (!this.userInfo) {
+    if (!this.user) {
       return {} as IRestUser;
     }
 
-    return cloneDeep(this.userInfo.user);
+    return cloneDeep(this.user);
   }
 
   getToken(): string | undefined {
-    return this.userInfo?.token;
+    return this.user?.token;
   }
 }

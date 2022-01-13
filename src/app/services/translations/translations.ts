@@ -117,6 +117,14 @@ const EN = {
       key: 'NO_GROUPS_NO_NOTES',
       value: 'To add note, you need to create at least one group.'
     },
+    {
+      key: 'INVITATION_LINK',
+      value: 'Invitation link'
+    },
+    {
+      key: 'GROUP',
+      value: 'Group'
+    },
   ]
 };
 

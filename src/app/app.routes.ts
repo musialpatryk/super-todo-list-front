@@ -20,7 +20,7 @@ export const routes: Routes = [
         component: NotesComponent
       },
       {
-        path: 'add/:groupId',
+        path: 'notes/add/:groupId',
         component: AddNoteComponent,
       },
       { path: 'groups',

@@ -4,22 +4,43 @@
   </div>
   <div class="card-body">
     <div class="container-fluid">
-      <div class="row">
+
+      <div class="row mb-2">
         <div class="col-6 font-weight-bold">
           {{'ID' | translate}}:
         </div>
         <div class="col-6">
+          {{user.id}}
         </div>
       </div>
 
-      <div class="row">
+      <div class="row mb-2">
         <div class="col-6 font-weight-bold">
           {{'USERNAME' | translate}}:
         </div>
         <div class="col-6">
-          {{user.username}}
+          {{user.name}}
         </div>
       </div>
+
+      <div class="row mb-2">
+        <div class="col-6 font-weight-bold">
+          {{'EMAIL' | translate}}:
+        </div>
+        <div class="col-6">
+          {{user.email}}
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-6 font-weight-bold">
+          {{'INVITATION_LINK' | translate}}:
+        </div>
+        <div class="col-6">
+          {{user.invitationLink}}
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

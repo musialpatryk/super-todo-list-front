@@ -20,7 +20,6 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
       .pipe(takeUntil(this._destroy$))
       .subscribe(() => {
         this.markForTransform = true;
-        console.log('markForTransform');
       })
   }
 

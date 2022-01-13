@@ -12,7 +12,7 @@ import {FormControl, Validators} from '@angular/forms';
 export class GroupsComponent implements OnInit {
   groups: IRestGroup[] = [];
   nameControl = new FormControl('', Validators.required);
-  loading = false;
+  loading = true;
   error = false;
 
   constructor(
@@ -24,6 +24,7 @@ export class GroupsComponent implements OnInit {
     this.http.get<IRestGroup[]>('group')
       .subscribe((groups) => {
         this.groups = groups;
+        this.loading = false;
       });
   }
 
@@ -46,6 +47,8 @@ export class GroupsComponent implements OnInit {
 
   removeGroup(group: IRestGroup): void {
     this.http.delete(`group/${group.id}`)
-      .subscribe()
+      .subscribe(() => {
+        this.groups.splice(this.groups.indexOf(group), 1)
+      });
   }
 }

@@ -1,4 +1,14 @@
-<div class="mb-2 row">
+<form (ngSubmit)="addGroup()" class="mb-2 row">
+  <div class="col">
+    <div class="w-100">
+        <button type="submit"
+                [disabled]="nameControl.invalid"
+                class="btn btn-success w-100">
+          {{'ADD' | translate}}
+        </button>
+      </div>
+  </div>
+
   <div class="form-group col-10">
     <input type="text"
            class="form-control"
@@ -6,18 +16,7 @@
            [placeholder]="'GROUP_NAME' | translate"
     />
   </div>
-
-  <div class="col d-flex justify-content-end">
-    <div class="w-100">
-      <button type="button"
-              [disabled]="nameControl.invalid"
-              (click)="addGroup()"
-              class="btn btn-success w-100">
-        {{'ADD' | translate}}
-      </button>
-    </div>
-  </div>
-</div>
+</form>
 
 <div *ngIf="error"
      class="mb-4 py-1 text-center alert-danger">
@@ -55,8 +54,11 @@
         </button>
       </td>
     </tr>
-    <tr *ngIf="!groups?.length">
+    <tr *ngIf="!groups?.length && !loading">
       <td colspan="3">{{'NO_GROUPS' | translate}}</td>
+    </tr>
+    <tr *ngIf="loading">
+      <td colspan="3">{{'LOADING' | translate}}</td>
     </tr>
     </tbody>
   </table>

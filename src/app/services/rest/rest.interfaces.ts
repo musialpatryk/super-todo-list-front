@@ -1,6 +1,10 @@
 
 export interface IRestUser {
-  username: string;
+  id: number;
+  email: string;
+  name: string;
+  token: string;
+  invitationLink: string;
 }
 
 export interface IRestNote {
