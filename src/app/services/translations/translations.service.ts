@@ -1,6 +1,7 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {TRANSLATIONS} from './translations';
 import {Observable, Subject} from 'rxjs';
+import {DOCUMENT} from '@angular/common';
 
 export interface ITranslation {
   readonly key: string;
@@ -19,13 +20,17 @@ export class TranslationsService {
   availableLanguages!: string[];
   translationChange$: Observable<void>;
 
+  private languageStorageKey = 'currentLanguage';
+  private sessionStorage!: Storage;
   private availableTranslations: ITranslationLanguage[] = TRANSLATIONS;
   private currentLanguage!: ITranslationLanguage;
   private translationChange = new Subject<void>();
 
-  constructor() {
+  constructor(
+    @Inject(DOCUMENT) document: Document
+  ) {
+    this.sessionStorage = document.defaultView!.sessionStorage;
     this.translationChange$ = this.translationChange.asObservable();
-
     this.initializeTranslations();
   }
 
@@ -37,7 +42,19 @@ export class TranslationsService {
     this.availableLanguages = this.availableTranslations.map((item) => {
       return item.lang;
     });
-    this.currentLanguage = this.availableTranslations[0];
+    this.currentLanguage = this.getCurrentLangFromStorage();
+  }
+
+  private getCurrentLangFromStorage(): ITranslationLanguage {
+    const data = sessionStorage.getItem(this.languageStorageKey);
+    if (!data) {
+      return this.availableTranslations[0];
+    }
+
+    const savedTranslation = this.availableTranslations.find((translation) => {
+      return translation.lang === data;
+    });
+    return savedTranslation || this.availableTranslations[0];
   }
 
   translate(key: string | undefined): string {
@@ -65,6 +82,7 @@ export class TranslationsService {
       return false;
     }
 
+    this.sessionStorage.setItem(this.languageStorageKey, searchedLang.lang);
     this.currentLanguage = searchedLang;
     this.translationChange.next();
     return true;
