@@ -1,6 +1,15 @@
 <div class="card">
-  <div class="card-header bg-secondary text-light">
-    {{'ACCOUNT_INFO' | translate}}
+  <div class="card-header bg-secondary text-light d-flex justify-content-between">
+    <div class="d-flex align-items-center">
+      {{'ACCOUNT_INFO' | translate}}
+    </div>
+    <div>
+      <button class="btn btn-success button-width"
+              [routerLink]="['/app/account/edit', user.id]"
+              style="min-width: 100px;">
+        {{'EDIT' | translate}}
+      </button>
+    </div>
   </div>
   <div class="card-body">
     <div class="container-fluid">

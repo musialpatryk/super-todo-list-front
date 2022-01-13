@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {UtilsService} from '../../../services/utils/utils.service';
 
 @Component({
   selector: 'app-create-account',
@@ -17,7 +18,8 @@ export class CreateAccountComponent {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private utils: UtilsService
   ) {
     this.initializeFormControls();
   }
@@ -32,19 +34,13 @@ export class CreateAccountComponent {
       passwords: new FormGroup({
         password: passwordControl,
         repeatPassword: repeatPasswordControl
-      }, this.passwordsEquality)
+      }, this.utils.passwordsEqualityValidator)
     });
 
     this.passwordControls = {
       password: passwordControl,
       repeatPassword: repeatPasswordControl,
     }
-  }
-
-  private passwordsEquality: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => {
-    let pass = group.get('password')!.value;
-    let confirmPass = group.get('repeatPassword')!.value
-    return pass === confirmPass ? null : { notSame: true }
   }
 
   createAccount(): void {

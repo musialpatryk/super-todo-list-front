@@ -27,7 +27,7 @@ export class BreadcrumbsComponent implements OnInit {
   private computeRouteNames(): void {
     this.routesNames = this.router.url.split('/')
       .filter((routeName) => {
-        return routeName !== ''
+        return routeName !== '' && isNaN(parseInt(routeName))
       })
       .map((routeName) => {
         return routeName.toUpperCase();

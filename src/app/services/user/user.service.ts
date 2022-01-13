@@ -51,7 +51,7 @@ export class UserService {
       );
   }
 
-  private saveUser(user: IRestUser): void {
+  saveUser(user: IRestUser): void {
     this.user = user;
     this.sessionStorage.setItem(this.userKey, JSON.stringify(user));
   }
