@@ -44,10 +44,13 @@
       <td>{{group.id}}</td>
       <td>{{group.name}}</td>
       <td>
-        <button type="button" class="btn btn-info">
+        <button type="button"
+                [routerLink]="['/app/groups/edit', group.id]"
+                class="btn btn-info">
           {{'DETAILS' | translate}}
         </button>
         <button type="button"
+                *ngIf="currentUserId === group.administratorId"
                 (click)="removeGroup(group)"
                 class="btn btn-danger ml-3">
           {{'DELETE' | translate}}

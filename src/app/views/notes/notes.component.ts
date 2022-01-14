@@ -11,7 +11,7 @@ export class NotesComponent implements OnInit {
   notes: IRestNote[] = [];
   groups: IRestGroup[] = [];
   currentGroup!: IRestGroup;
-  loading = false;
+  loading = true;
 
   constructor(
     private http: HttpClient
@@ -19,15 +19,15 @@ export class NotesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loading = true;
     this.http.get<IRestGroup[]>('group')
       .subscribe((groups) => {
         this.groups = groups;
         if (groups?.length) {
           this.currentGroup = this.groups[0];
           this.reloadNotes();
+        } else {
+          this.loading = false
         }
-        this.loading = false
       });
   }
 

@@ -11,6 +11,7 @@ import {CommonModule} from '@angular/common';
 import {ComponentsModule} from '../components/components.module';
 import { AddNoteComponent } from './notes/add-note/add-note.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { EditGroupComponent } from './groups/edit-group/edit-group.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
         GroupsComponent,
         BaseLayoutComponent,
         AddNoteComponent,
+        EditGroupComponent,
     ],
   imports: [
     AccountModule,

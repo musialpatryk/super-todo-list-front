@@ -1,0 +1,89 @@
+<form (ngSubmit)="addUser()"
+      *ngIf="isCurrentUserAdmin"
+      class="mb-2 row">
+  <div class="col">
+    <div class="w-100">
+      <button type="submit"
+              [disabled]="linkControl.invalid"
+              class="btn btn-success w-100">
+        {{'ADD' | translate}}
+      </button>
+    </div>
+  </div>
+
+  <div class="form-group col-10">
+    <input type="text"
+           class="form-control"
+           [formControl]="linkControl"
+           [placeholder]="'INVITATION_LINK' | translate"
+    />
+  </div>
+</form>
+
+<ng-container [ngSwitch]="message">
+  <div *ngSwitchCase="'success'"
+       class="mb-4 py-1 text-center alert-success">
+    {{'SUCCESS' | translate}}
+  </div>
+
+  <div *ngSwitchCase="'error'"
+       class="mb-4 py-1 text-center alert-danger">
+    {{'ERROR' | translate}}
+  </div>
+</ng-container>
+
+<div class="w-100 mt-4 d-flex align-items-center justify-content-between">
+  <span style="font-size: 2rem;">{{'GROUP_NAME' | translate}}: <b>{{group?.name}}</b></span>
+
+  <div class="d-flex align-items-center" *ngIf="!isCurrentUserAdmin">
+    <button type="button" class="btn btn-danger mt-3" (click)="leaveGroup()">
+      {{'LEAVE_GROUP' | translate}}
+    </button>
+  </div>
+</div>
+
+<div class="table-responsive mt-4">
+  <table class="table table-bordered table-hover table-striped">
+    <thead>
+    <tr class="bg-secondary text-light">
+      <th>
+        {{'ID' | translate}}
+      </th>
+      <th>
+        {{'USERNAME' | translate}}
+      </th>
+      <th *ngIf="isCurrentUserAdmin">
+        {{'ACTIONS' | translate}}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngIf="group">
+      <tr *ngFor="let user of users">
+        <td>
+          {{user.id}}
+          <span *ngIf="user.isAdmin"
+                class="badge badge-success ml-2">
+            {{'ADMIN' | translate}}
+          </span>
+        </td>
+        <td>{{user.name}}</td>
+        <td *ngIf="isCurrentUserAdmin">
+          <button type="button"
+                  *ngIf="!user.isAdmin"
+                  (click)="removeUser(user)"
+                  class="btn btn-danger">
+            {{'REMOVE_USER' | translate}}
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+    <tr *ngIf="!users?.length && !loading">
+      <td colspan="3">{{'NO_USERS' | translate}}</td>
+    </tr>
+    <tr *ngIf="loading">
+      <td colspan="3">{{'LOADING' | translate}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

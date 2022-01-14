@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IRestGroup} from '../../services/rest/rest.interfaces';
 import {HttpClient} from '@angular/common/http';
 import {FormControl, Validators} from '@angular/forms';
+import {UserService} from '../../services/user/user.service';
 
 
 @Component({
@@ -12,12 +13,15 @@ import {FormControl, Validators} from '@angular/forms';
 export class GroupsComponent implements OnInit {
   groups: IRestGroup[] = [];
   nameControl = new FormControl('', Validators.required);
+  currentUserId: number;
   loading = true;
   error = false;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    userService: UserService
   ) {
+    this.currentUserId = userService.getUser().id;
   }
 
   ngOnInit(): void {

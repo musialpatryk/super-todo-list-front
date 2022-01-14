@@ -18,4 +18,5 @@ export interface IRestNote {
 export interface IRestGroup {
   id: number;
   name: string;
+  administratorId : number;
 }

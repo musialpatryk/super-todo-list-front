@@ -6,6 +6,18 @@ const EN = {
       value: 'Log In'
     },
     {
+      key: 'BACK',
+      value: 'Back'
+    },
+    {
+      key: 'REMOVE_USER',
+      value: 'Remove user'
+    },
+    {
+      key: 'LEAVE_GROUP',
+      value: 'Leave group'
+    },
+    {
       key: 'REGISTER',
       value: 'Create new account'
     },
@@ -140,6 +152,10 @@ const EN = {
     {
       key: 'NOTE_DESCRIPTION',
       value: 'Description'
+    },
+    {
+      key: 'ADMIN',
+      value: 'Administrator'
     }
   ]
 };
@@ -286,7 +302,23 @@ const PL = {
     {
       key: 'NOTE_DESCRIPTION',
       value: 'Treść'
-    }
+    },
+    {
+      key: 'ADMIN',
+      value: 'Administrator'
+    },
+    {
+      key: 'LEAVE_GROUP',
+      value: 'Opuść grupe'
+    },
+    {
+      key: 'BACK',
+      value: 'Powrót'
+    },
+    {
+      key: 'REMOVE_USER',
+      value: 'Usuń użytkownika'
+    },
   ]
 };
 

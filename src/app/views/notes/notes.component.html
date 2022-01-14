@@ -19,6 +19,7 @@
         <label class="col-form-label mr-2 font-weight-bold">{{ 'GROUP' | translate }}:</label>
 
         <select class="form-control"
+                (change)="reloadNotes()"
                 [(ngModel)]="currentGroup"
                 id="group-select">
           <option *ngFor="let group of groups" [ngValue]="group">{{group.name}}</option>
