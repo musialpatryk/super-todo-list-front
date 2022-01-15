@@ -45,7 +45,7 @@
     {{'LOADING' | translate}}
   </h3>
 
-  <div *ngIf="notes?.length" class="notes-container">
+  <div *ngIf="notes?.length && !loading" class="notes-container">
     <app-note *ngFor="let note of notes"
               (noteChange)="reloadNotes()"
               [note]="note">
