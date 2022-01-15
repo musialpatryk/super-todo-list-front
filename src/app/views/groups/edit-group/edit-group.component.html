@@ -35,7 +35,7 @@
 <div class="w-100 mt-4 d-flex align-items-center justify-content-between">
   <span style="font-size: 2rem;">{{'GROUP_NAME' | translate}}: <b>{{group?.name}}</b></span>
 
-  <div class="d-flex align-items-center" *ngIf="!isCurrentUserAdmin">
+  <div class="d-flex align-items-center" *ngIf="!isCurrentUserAdmin && !loading">
     <button type="button" class="btn btn-danger mt-3" (click)="leaveGroup()">
       {{'LEAVE_GROUP' | translate}}
     </button>

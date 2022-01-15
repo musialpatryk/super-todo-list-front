@@ -40,6 +40,11 @@
     {{'NOTES_LIST_EMPTY' | translate}}
   </h3>
 
+  <h3 *ngIf="loading"
+      class="text-center">
+    {{'LOADING' | translate}}
+  </h3>
+
   <div *ngIf="notes?.length" class="notes-container">
     <app-note *ngFor="let note of notes"
               (noteChange)="reloadNotes()"

@@ -10,6 +10,10 @@ const EN = {
       value: 'No sorting'
     },
     {
+      key: 'LOADING',
+      value: 'Loading..'
+    },
+    {
       key: 'DESC',
       value: 'Sort descending'
     },
@@ -342,6 +346,10 @@ const PL = {
     {
       key: 'ASC',
       value: 'Sortuj rosnąco'
+    },
+    {
+      key: 'LOADING',
+      value: 'Ładowanie..'
     },
   ]
 };
