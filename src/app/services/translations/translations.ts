@@ -6,6 +6,18 @@ const EN = {
       value: 'Log In'
     },
     {
+      key: 'NONE',
+      value: 'No sorting'
+    },
+    {
+      key: 'DESC',
+      value: 'Sort descending'
+    },
+    {
+      key: 'ASC',
+      value: 'Sort ascending'
+    },
+    {
       key: 'BACK',
       value: 'Back'
     },
@@ -318,6 +330,18 @@ const PL = {
     {
       key: 'REMOVE_USER',
       value: 'Usuń użytkownika'
+    },
+    {
+      key: 'NONE',
+      value: 'Brak sortowania'
+    },
+    {
+      key: 'DESC',
+      value: 'Sortuj malejąco'
+    },
+    {
+      key: 'ASC',
+      value: 'Sortuj rosnąco'
     },
   ]
 };

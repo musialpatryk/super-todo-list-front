@@ -28,6 +28,13 @@
     </div>
   </div>
 
+  <select [formControl]="sortingControl"
+          class="form-control mb-2" style="width: 200px;">
+    <option ngValue="none" *ngIf="!sortingAlreadyChanges">{{'NONE' | translate}}</option>
+    <option ngValue="asc">{{'ASC' | translate}}</option>
+    <option ngValue="desc">{{'DESC' | translate}}</option>
+  </select>
+
   <h3 *ngIf="!notes?.length && !loading"
       class="text-center">
     {{'NOTES_LIST_EMPTY' | translate}}
