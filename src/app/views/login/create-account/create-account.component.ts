@@ -52,7 +52,7 @@ export class CreateAccountComponent {
         name: this.createUserForm.get('username')!.value,
         email: this.createUserForm.get('email')!.value,
         password: this.createUserForm.get('passwords.password')!.value,
-        passwordCheck: this.createUserForm.get('passwords.repeatPassword')!.value
+        password_confirmation: this.createUserForm.get('passwords.repeatPassword')!.value
       };
     this.http.post('register', payload)
       .subscribe({
