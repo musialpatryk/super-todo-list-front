@@ -40,7 +40,7 @@ export class UserService {
       email: email,
       password
     }
-    return this.http.post<IRestUser>('authenticate', payload)
+    return this.http.post<IRestUser>('login', payload)
       .pipe(
         tap({
           next: (response) => {
