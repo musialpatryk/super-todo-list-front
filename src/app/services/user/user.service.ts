@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {DOCUMENT} from '@angular/common';
 import cloneDeep from 'lodash.clonedeep';
-import {tap} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {IRestUser} from '../rest/rest.interfaces';
 
@@ -40,13 +40,16 @@ export class UserService {
       email: email,
       password
     }
-    return this.http.post<IRestUser>('login', payload)
+    return this.http.post<{token: string, user: IRestUser}>('login', payload)
       .pipe(
         tap({
           next: (response) => {
-            this.saveUser(response);
+            this.saveUser(response.user);
             return true;
           }
+        }),
+        map((response) => {
+          return response.user;
         })
       );
   }
@@ -71,6 +74,7 @@ export class UserService {
   }
 
   getUser(): IRestUser {
+    console.log(this.user);
     if (!this.user) {
       return {} as IRestUser;
     }

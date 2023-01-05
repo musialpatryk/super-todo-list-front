@@ -49,7 +49,7 @@ export class EditGroupComponent implements OnInit {
       });
 
 
-    this.http.get<IGroupUser[]>('group/get-users/' + this.groupId)
+    this.http.get<IGroupUser[]>(`group/${this.groupId}/users`)
       .subscribe((response) => {
         this.users = response;
         this.markAdminUser();
@@ -68,9 +68,9 @@ export class EditGroupComponent implements OnInit {
     }
 
     console.log(this.users, this.group);
-    this.isCurrentUserAdmin = this.userService.getUser().id === this.group.administratorId;
+    this.isCurrentUserAdmin = this.userService.getUser().id === this.group.administrator_id;
     this.users.forEach((user) => {
-      user.isAdmin = user.id === this.group.administratorId;
+      user.isAdmin = user.id === this.group.administrator_id;
     });
   }
 
@@ -104,7 +104,7 @@ export class EditGroupComponent implements OnInit {
   }
 
   leaveGroup(): void {
-    this.http.post('group/leave/' + this.groupId, {})
+    this.http.post(`group/${this.groupId}/leave`, {})
       .subscribe({
         next: () => {
           this.router.navigate(['/app/groups']);
