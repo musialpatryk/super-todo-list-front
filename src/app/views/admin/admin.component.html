@@ -1,0 +1,65 @@
+<h3 *ngIf="loading"
+    class="text-center">
+  {{'LOADING' | translate}}
+</h3>
+
+<h3 *ngIf="!users?.length && !loading; else noLoading"
+    class="text-center">
+  {{'NO_USERS' | translate}}
+</h3>
+
+<ng-template #noLoading>
+  <div class="mb-5 row">
+    <div class="col">
+      <!--      <button type="button"-->
+      <!--              [routerLink]="['/app/notes/add', currentGroup.id]"-->
+      <!--              class="btn btn-success w-100">-->
+      <!--        {{'ADD' | translate}}-->
+      <!--      </button>-->
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+      <thead>
+      <tr class="bg-secondary text-light">
+        <th>
+          {{'ID' | translate}}
+        </th>
+        <th>
+          {{'USER' | translate}}
+        </th>
+        <th>
+          {{'ACTIONS' | translate}}
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users;let index = index">
+        <td>{{user.id}}</td>
+        <td><b>{{user.name}}</b> ({{user.email}})</td>
+        <td>
+<!--          <button type="button"-->
+<!--                  [routerLink]="['/app/admin/edit', user.id]"-->
+<!--                  class="btn btn-info">-->
+<!--            {{'EDIT' | translate}}-->
+<!--          </button>-->
+          <button type="button"
+                  (click)="removeUser(index)"
+                  class="btn btn-danger ml-3">
+            {{'DELETE' | translate}}
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="!users?.length && !loading">
+        <td colspan="3">{{'NO_GROUPS' | translate}}</td>
+      </tr>
+      <tr *ngIf="loading">
+        <td colspan="3">{{'LOADING' | translate}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+
+

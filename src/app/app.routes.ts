@@ -11,6 +11,7 @@ import {AddNoteComponent} from './views/notes/add-note/add-note.component';
 import {EditAccountComponent} from './views/account/edit-account/edit-account.component';
 import {EditGroupComponent} from './views/groups/edit-group/edit-group.component';
 import {RoleGuard} from 'src/app/guards/role.guard';
+import {AdminComponent} from 'src/app/views/admin/admin.component';
 
 export const routes: Routes = [
   {
@@ -46,6 +47,11 @@ export const routes: Routes = [
       {
         path: 'account/edit/:accountId',
         component: EditAccountComponent,
+        canActivate: [RoleGuard]
+      },
+      {
+        path: 'admin',
+        component: AdminComponent,
         canActivate: [RoleGuard]
       },
       {

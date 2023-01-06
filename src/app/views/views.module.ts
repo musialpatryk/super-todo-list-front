@@ -12,17 +12,19 @@ import {ComponentsModule} from '../components/components.module';
 import { AddNoteComponent } from './notes/add-note/add-note.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EditGroupComponent } from './groups/edit-group/edit-group.component';
+import {AdminComponent} from 'src/app/views/admin/admin.component';
 
 
 @NgModule({
-    declarations: [
-        PageNotFoundComponent,
-        NotesComponent,
-        GroupsComponent,
-        BaseLayoutComponent,
-        AddNoteComponent,
-        EditGroupComponent,
-    ],
+  declarations: [
+    AdminComponent,
+    PageNotFoundComponent,
+    NotesComponent,
+    GroupsComponent,
+    BaseLayoutComponent,
+    AddNoteComponent,
+    EditGroupComponent
+  ],
   imports: [
     AccountModule,
     LoginModule,
@@ -33,10 +35,10 @@ import { EditGroupComponent } from './groups/edit-group/edit-group.component';
     FormsModule,
     ReactiveFormsModule
   ],
-    exports: [
-        PageNotFoundComponent,
-        NotesComponent
-    ]
+  exports: [
+    PageNotFoundComponent,
+    NotesComponent
+  ]
 })
 export class ViewsModule {
 }
