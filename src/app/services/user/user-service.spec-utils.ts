@@ -9,7 +9,7 @@ export class UserServiceUtils {
     token: 'token',
     email: 'test@test.test',
     name: 'test',
-    invitationLink: 'invitation-link'
+    invitation_link: 'invitation-link'
   };
 
   constructor(

@@ -79,9 +79,11 @@ export class EditGroupComponent implements OnInit {
       invitationLink: this.linkControl.value,
       groupId: this.groupId
     }
-     this.http.post('invitation', payload)
+     this.http.post<IRestUser>('invitation', payload)
        .subscribe({
-         next: () => {
+         next: (response) => {
+           this.users.push(response)
+           this.markAdminUser();
            this.message = 'success';
          },
          error: () => {
@@ -91,7 +93,7 @@ export class EditGroupComponent implements OnInit {
   }
 
   removeUser(user: IGroupUser): void {
-    this.http.post('group/' + this.groupId + '/kick/' + user.id, {})
+    this.http.post('group/' + this.groupId + '/kick', {user: user.id})
       .subscribe({
         next: () => {
           this.users.splice(this.users.indexOf(user), 1);

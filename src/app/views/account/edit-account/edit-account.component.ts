@@ -54,7 +54,7 @@ export class EditAccountComponent implements OnInit {
       name: this.accountForm.get('username')?.value,
       email: this.accountForm.get('email')?.value,
       password: this.accountForm.get('passwords.password')?.value,
-      passwordCheck: this.accountForm.get('passwords.repeatPassword')?.value
+      password_confirmation: this.accountForm.get('passwords.repeatPassword')?.value
     }
     this.http.put<IRestUser>('profile', payload)
       .subscribe((res) => {

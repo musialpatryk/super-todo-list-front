@@ -4,7 +4,7 @@ export interface IRestUser {
   email: string;
   name: string;
   token: string;
-  invitationLink: string;
+  invitation_link: string;
 }
 
 export interface IRestNote {

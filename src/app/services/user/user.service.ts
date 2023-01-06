@@ -42,20 +42,24 @@ export class UserService {
     }
     return this.http.post<{token: string, user: IRestUser}>('login', payload)
       .pipe(
+        map(({user, token}) => {
+          return {...user, token};
+        }),
         tap({
-          next: (response) => {
-            this.saveUser(response.user);
+          next: (user) => {
+            this.saveUser(user);
             return true;
           }
-        }),
-        map((response) => {
-          return response.user;
         })
       );
   }
 
   saveUser(user: IRestUser): void {
+    const oldToken = this.user?.token;
     this.user = user;
+    if (oldToken) {
+      this.user.token = oldToken;
+    }
     this.sessionStorage.setItem(this.userKey, JSON.stringify(user));
   }
 
