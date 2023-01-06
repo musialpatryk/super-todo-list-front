@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IRestNote} from '../../services/rest/rest.interfaces';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -16,7 +16,7 @@ export class NoteComponent implements OnInit {
 
   edit = false;
   editForm = new FormGroup({
-    name: new FormControl(''),
+    name: new FormControl('', Validators.required),
     description: new FormControl('')
   })
 

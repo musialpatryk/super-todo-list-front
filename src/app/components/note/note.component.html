@@ -47,7 +47,8 @@
     <div class="card-footer d-flex justify-content-end">
       <button type="button"
               (click)="saveNote()"
-              class="btn btn-success">
+              class="btn btn-success"
+              [disabled]="editForm.invalid">
         {{'SAVE' | translate}}
       </button>
     </div>
