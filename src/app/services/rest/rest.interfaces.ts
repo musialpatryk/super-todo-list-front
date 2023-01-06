@@ -4,6 +4,7 @@ export interface IRestUser {
   email: string;
   name: string;
   token: string;
+  roles: ('admin' | 'user')[];
   invitation_link: string;
 }
 

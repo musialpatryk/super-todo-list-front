@@ -78,11 +78,11 @@ export class UserService {
   }
 
   getUser(): IRestUser {
-    console.log(this.user);
     if (!this.user) {
       return {} as IRestUser;
     }
 
+    this.user.roles = ['user'];
     return cloneDeep(this.user);
   }
 

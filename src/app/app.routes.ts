@@ -10,6 +10,7 @@ import {AuthGuard} from './guards/auth.guard';
 import {AddNoteComponent} from './views/notes/add-note/add-note.component';
 import {EditAccountComponent} from './views/account/edit-account/edit-account.component';
 import {EditGroupComponent} from './views/groups/edit-group/edit-group.component';
+import {RoleGuard} from 'src/app/guards/role.guard';
 
 export const routes: Routes = [
   {
@@ -19,27 +20,33 @@ export const routes: Routes = [
     children: [
       {
         path: 'notes',
-        component: NotesComponent
+        component: NotesComponent,
+        canActivate: [RoleGuard]
       },
       {
         path: 'notes/add/:groupId',
         component: AddNoteComponent,
+        canActivate: [RoleGuard]
       },
       {
         path: 'groups',
-        component: GroupsComponent
+        component: GroupsComponent,
+        canActivate: [RoleGuard]
       },
       {
         path: 'groups/edit/:groupId',
-        component: EditGroupComponent
+        component: EditGroupComponent,
+        canActivate: [RoleGuard]
       },
       {
         path: 'account',
-        component: AccountComponent
+        component: AccountComponent,
+        canActivate: [RoleGuard]
       },
       {
         path: 'account/edit/:accountId',
-        component: EditAccountComponent
+        component: EditAccountComponent,
+        canActivate: [RoleGuard]
       },
       {
         path: '',

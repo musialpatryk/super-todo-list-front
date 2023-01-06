@@ -67,7 +67,6 @@ export class EditGroupComponent implements OnInit {
       return;
     }
 
-    console.log(this.users, this.group);
     this.isCurrentUserAdmin = this.userService.getUser().id === this.group.administrator_id;
     this.users.forEach((user) => {
       user.isAdmin = user.id === this.group.administrator_id;
