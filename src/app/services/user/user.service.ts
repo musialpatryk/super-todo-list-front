@@ -82,7 +82,6 @@ export class UserService {
       return {} as IRestUser;
     }
 
-    this.user.roles = ['user'];
     return cloneDeep(this.user);
   }
 
