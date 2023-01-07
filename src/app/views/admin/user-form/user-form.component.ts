@@ -16,6 +16,8 @@ export class UserFormComponent implements OnInit {
     email: new FormControl('', Validators.email),
     roles: new FormControl([]),
   });
+  error = false;
+  success = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -62,21 +64,29 @@ export class UserFormComponent implements OnInit {
   }
 
   private addUser(): void {
-    const payload = {
-      ...this.userForm.value,
-      password_confirmation: this.userForm.value.password
-    };
-
-    this.http.post('admin/user', payload)
-      .subscribe(() => {
-        this.router.navigate(['/app/admin']);
+    this.http.post('admin/user', this.userForm.value)
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/app/admin']);
+        },
+        error: () => {
+          this.error = true;
+        }
       });
   }
 
   private editUser(): void {
     this.http.put<IRestUser>('admin/user/' + this.user.id, this.userForm.value)
-      .subscribe((user) => {
-        this.user = user;
+      .subscribe({
+        next: (user) => {
+          this.user = user;
+          this.error = false;
+          this.success = true;
+        },
+        error: () => {
+          this.error = true;
+          this.success = false;
+        }
       });
   }
 }

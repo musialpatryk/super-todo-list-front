@@ -9,6 +9,15 @@
         [formGroup]="userForm"
         class="card-body">
     <div class="container-fluid">
+      <div *ngIf="error"
+           class="mb-4 py-1 text-center alert-danger">
+        {{'ERROR' | translate}}
+      </div>
+
+      <div *ngIf="success"
+           class="mb-4 py-1 text-center alert-success">
+        {{'SUCCESS' | translate}}
+      </div>
 
       <div class="row mb-3" *ngIf="user.id">
         <div class="col-6 d-flex align-items-center  font-weight-bold">
