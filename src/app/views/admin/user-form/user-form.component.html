@@ -73,6 +73,25 @@
         </div>
       </div>
 
+      <div class="row mb-2">
+        <div class="col-6 d-flex font-weight-bold">
+          {{'ROLES' | translate}}:
+
+          <app-validation-errors [control]="userForm.controls['roles']">
+          </app-validation-errors>
+        </div>
+        <div class="col-6">
+          <select multiple
+                  formControlName="roles"
+                  class="form-control">
+            <option *ngFor="let option of availableRoles"
+                    [ngValue]="option.value">
+              {{option.lang | translate}}
+            </option>
+          </select>
+        </div>
+      </div>
+
       <div class="row mt-5 align-items-end justify-content-end">
         <div class="col-6 d-flex justify-content-between">
           <button type="submit"

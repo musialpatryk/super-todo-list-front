@@ -18,6 +18,16 @@ export class UserFormComponent implements OnInit {
   });
   error = false;
   success = false;
+  availableRoles = [
+    {
+      lang: 'ADMIN',
+      value: 'admin'
+    },
+    {
+      lang: 'USER',
+      value: 'user'
+    },
+  ]
 
   constructor(
     private route: ActivatedRoute,
@@ -55,6 +65,8 @@ export class UserFormComponent implements OnInit {
   }
 
   save(): void {
+    console.log(this.userForm.value.roles);
+
     if (this.user.id) {
       this.editUser();
       return;

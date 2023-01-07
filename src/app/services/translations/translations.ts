@@ -2,6 +2,10 @@ const EN = {
   lang: 'en',
   translations: [
     {
+      key: 'ROLES',
+      value: 'Roles'
+    },
+    {
       key: 'ADD_USER',
       value: 'Add user'
     },
@@ -358,6 +362,10 @@ const PL = {
     {
       key: 'ADD_USER',
       value: 'Dodaj użytkownika'
+    },
+    {
+      key: 'ROLES',
+      value: 'Role'
     },
   ]
 };
