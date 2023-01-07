@@ -10,12 +10,12 @@
 
 <ng-template #noLoading>
   <div class="mb-5 row">
-    <div class="col">
-      <!--      <button type="button"-->
-      <!--              [routerLink]="['/app/notes/add', currentGroup.id]"-->
-      <!--              class="btn btn-success w-100">-->
-      <!--        {{'ADD' | translate}}-->
-      <!--      </button>-->
+    <div class="col-2">
+      <button type="button"
+              routerLink="/app/admin/add"
+              class="btn btn-success w-100">
+        {{'ADD_USER' | translate}}
+      </button>
     </div>
   </div>
 
@@ -39,11 +39,11 @@
         <td>{{user.id}}</td>
         <td><b>{{user.name}}</b> ({{user.email}})</td>
         <td>
-<!--          <button type="button"-->
-<!--                  [routerLink]="['/app/admin/edit', user.id]"-->
-<!--                  class="btn btn-info">-->
-<!--            {{'EDIT' | translate}}-->
-<!--          </button>-->
+          <button type="button"
+                  [routerLink]="['/app/admin/edit', user.id]"
+                  class="btn btn-info">
+            {{'EDIT' | translate}}
+          </button>
           <button type="button"
                   (click)="removeUser(index)"
                   class="btn btn-danger ml-3">

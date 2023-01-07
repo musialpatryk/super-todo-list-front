@@ -12,6 +12,7 @@ import {EditAccountComponent} from './views/account/edit-account/edit-account.co
 import {EditGroupComponent} from './views/groups/edit-group/edit-group.component';
 import {RoleGuard} from 'src/app/guards/role.guard';
 import {AdminComponent} from 'src/app/views/admin/admin.component';
+import {UserFormComponent} from 'src/app/views/admin/user-form/user-form.component';
 
 export const routes: Routes = [
   {
@@ -45,13 +46,23 @@ export const routes: Routes = [
         canActivate: [RoleGuard]
       },
       {
-        path: 'account/edit/:accountId',
+        path: 'account/edit',
         component: EditAccountComponent,
         canActivate: [RoleGuard]
       },
       {
         path: 'admin',
         component: AdminComponent,
+        canActivate: [RoleGuard]
+      },
+      {
+        path: 'admin/add',
+        component: UserFormComponent,
+        canActivate: [RoleGuard]
+      },
+      {
+        path: 'admin/edit/:userId',
+        component: UserFormComponent,
         canActivate: [RoleGuard]
       },
       {

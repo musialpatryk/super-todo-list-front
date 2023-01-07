@@ -13,6 +13,7 @@ import { AddNoteComponent } from './notes/add-note/add-note.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EditGroupComponent } from './groups/edit-group/edit-group.component';
 import {AdminComponent} from 'src/app/views/admin/admin.component';
+import {UserFormComponent} from 'src/app/views/admin/user-form/user-form.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {AdminComponent} from 'src/app/views/admin/admin.component';
     GroupsComponent,
     BaseLayoutComponent,
     AddNoteComponent,
-    EditGroupComponent
+    EditGroupComponent,
+    UserFormComponent
   ],
   imports: [
     AccountModule,

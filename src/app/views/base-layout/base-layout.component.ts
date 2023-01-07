@@ -27,7 +27,7 @@ export class BaseLayoutComponent implements OnInit {
     {
       link: 'account',
       lang: 'ACCOUNT',
-      roles: ['user']
+      roles: ['user', 'admin']
     },
     {
       link: 'admin',
