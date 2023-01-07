@@ -52,7 +52,7 @@ export class NoteComponent implements OnInit {
     }
 
     if (this.post && typeof this.defaultGroupId !== 'undefined') {
-      payload.groupId = this.defaultGroupId;
+      payload.group_id = this.defaultGroupId;
     }
 
     const request = this.post

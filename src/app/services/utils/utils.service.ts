@@ -12,7 +12,7 @@ export class UtilsService {
   }
 
   static getPasswordValidators(): Validators {
-    const PASSWORD_REGEX = /^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[#?!@$%^&*-]).{8,}$/;
+    const PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
     return [Validators.required, Validators.pattern(PASSWORD_REGEX)];
   }
 }

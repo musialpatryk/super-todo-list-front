@@ -13,7 +13,7 @@ export interface IRestNote {
   name: string;
   description: string;
   priority: number;
-  groupId: number;
+  group_id: number;
 }
 
 export interface IRestGroup {
