@@ -19,14 +19,13 @@ export class CreateAccountComponent {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private utils: UtilsService
   ) {
     this.initializeFormControls();
   }
 
   private initializeFormControls(): void {
-    const passwordControl = new FormControl('', Validators.required),
-      repeatPasswordControl = new FormControl('', Validators.required);
+    const passwordControl = new FormControl('', UtilsService.getPasswordValidators()),
+      repeatPasswordControl = new FormControl('', UtilsService.getPasswordValidators());
 
     this.createUserForm = new FormGroup({
       username: new FormControl('', Validators.required),
@@ -34,7 +33,7 @@ export class CreateAccountComponent {
       passwords: new FormGroup({
         password: passwordControl,
         repeatPassword: repeatPasswordControl
-      }, this.utils.passwordsEqualityValidator)
+      }, UtilsService.passwordsEqualityValidator)
     });
 
     this.passwordControls = {

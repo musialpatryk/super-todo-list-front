@@ -4,6 +4,7 @@ import {Subject} from 'rxjs';
 import {UserService} from '../../services/user/user.service';
 import {takeUntil} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {UtilsService} from 'src/app/services/utils/utils.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnDestroy {
   loginForm = new FormGroup({
     email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    password: new FormControl('', UtilsService.getPasswordValidators()),
   });
   loginError = false;
 

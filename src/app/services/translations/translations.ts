@@ -180,7 +180,11 @@ const EN = {
     {
       key: 'ADMIN',
       value: 'Administrator'
-    }
+    },
+    {
+      key: 'pattern',
+      value: 'Password must have at least 8 characters, 1 number, 1 special character and 1 capital letter'
+    },
   ]
 };
 
@@ -190,6 +194,10 @@ const PL = {
     {
       key: 'LOGIN',
       value: 'Zaloguj się'
+    },
+    {
+      key: 'pattern',
+      value: 'Hasło musi posiadać przynajmniej 8 znaków, 1 liczbe, 1 znak specjalny i jedną dużą liczbę.'
     },
     {
       key: 'REGISTER',
