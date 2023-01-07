@@ -17,6 +17,8 @@ export class EditAccountComponent implements OnInit {
     password: FormControl;
     repeatPassword: FormControl;
   };
+  error = false;
+  success = false;
 
   constructor(
     private http: HttpClient,
@@ -57,9 +59,17 @@ export class EditAccountComponent implements OnInit {
       password_confirmation: this.accountForm.get('passwords.repeatPassword')?.value
     }
     this.http.put<IRestUser>('profile', payload)
-      .subscribe((res) => {
-        this.user = res;
-        this.userService.saveUser(res);
+      .subscribe({
+        next: (res) => {
+          this.user = res;
+          this.userService.saveUser(res);
+          this.error = false;
+          this.success = true;
+        },
+        error: () => {
+          this.error = true;
+          this.success = false;
+        }
       });
   }
 
